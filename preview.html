@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GLM-5.3 Cyber Capabilities — Defensive Verification Study</title>
+<meta name="description" content="Independent defensive-only verification of published GLM-5.3 cyber-capability claims. No exploits. Patch guidance + interactive quiz.">
+<style>
+:root{--bg:#ffffff;--fg:#17202a;--muted:#5d6d7e;--card:#f4f6f7;--accent:#1a5276;--accent2:#117a65;--warn:#7e5109;--ok:#145a32;--border:#d5d8dc}
+[data-theme="dark"]{--bg:#0e1116;--fg:#e8ecef;--muted:#9aa7b2;--card:#171c23;--accent:#7fb3d5;--accent2:#76d7c4;--warn:#f9c74f;--ok:#82e0aa;--border:#2c3440}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.wrap{max-width:1080px;margin:0 auto;padding:24px}
+header.hero{background:linear-gradient(135deg,#1a5276,#117a65);color:#fff;border-radius:16px;padding:36px 28px;margin:16px 0 20px}
+header.hero h1{margin:0 0 8px;font-size:clamp(24px,4vw,38px);line-height:1.2}
+header.hero p{margin:6px 0;opacity:.95}
+.badges img{margin:3px 4px 0 0}
+nav.toc{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px 18px;margin:16px 0}
+nav.toc a{color:var(--accent);text-decoration:none;margin-right:14px}
+section.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px;margin:16px 0}
+h2{margin-top:0;color:var(--accent)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.kpi{background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:14px}
+.kpi b{font-size:22px;display:block}
+table{width:100%;border-collapse:collapse;font-size:14px;background:var(--bg);border-radius:10px;overflow:hidden}
+th,td{border:1px solid var(--border);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:rgba(127,179,213,.15)}
+img.fig{width:100%;border-radius:10px;border:1px solid var(--border);background:#fff}
+.btn{display:inline-block;background:var(--accent);color:#fff;border:none;border-radius:10px;padding:10px 16px;cursor:pointer;font-size:15px;margin:6px 6px 0 0}
+.btn.ghost{background:transparent;color:var(--accent);border:1px solid var(--accent)}
+.quiz-q{background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:14px;margin:12px 0}
+.quiz-q h4{margin:0 0 8px}
+.quiz-q label{display:block;padding:6px 8px;border-radius:8px;cursor:pointer}
+.quiz-q label:hover{background:rgba(127,179,213,.15)}
+.explain{display:none;font-size:14px;color:var(--muted);margin-top:8px;border-left:3px solid var(--accent);padding-left:10px}
+footer{color:var(--muted);font-size:13px;padding:20px 0 40px}
+code{background:rgba(127,179,213,.18);padding:2px 6px;border-radius:6px}
+.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
+@media print{nav.toc,.toolbar,.btn{display:none}section.card{break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+<p style="margin:0;opacity:.85">Defensive-only · No exploits · MIT licensed</p>
+<h1>GLM-5.3 and the Spread of Advanced Cyber Capabilities</h1>
+<p>An independent verification study — from zero to pro in one page.</p>
+<div class="toolbar">
+<button class="btn ghost" style="color:#fff;border-color:#fff" onclick="toggleTheme()">🌙 Toggle dark mode</button>
+<a class="btn" style="background:#fff;color:#1a5276;text-decoration:none" href="#quiz">Start the 10-question quiz →</a>
+</div>
+</header>
+
+<nav class="toc">
+<strong>Contents:</strong>
+<a href="#ceo">CEO summary</a><a href="#beginner">Beginner guide</a><a href="#figures">Figures</a><a href="#verify">Verification table</a><a href="#stories">User stories</a><a href="#quiz">Quiz</a><a href="#deploy">Pages deploy</a><a href="#refs">References</a>
+</nav>
+
+<section class="card" id="ceo">
+<h2>CEO summary — 30 seconds</h2>
+<div class="grid">
+<div class="kpi"><b>12.2% vs 13.7%</b>Freely downloadable model vs best gated model on the same published V8 end-to-end setup (50/410 vs 56/410). Predecessors: 0.</div>
+<div class="kpi"><b>0% → 100%</b>Published refusal collapse after download (cover story 64%, prefilled reasoning 92%, edited weights 100%). Gated models: 0% where testable.</div>
+<div class="kpi"><b>$20.40</b>Published cost of one N-day chain (20 min human + 8 h model). Patch window is now hours, not months.</div>
+</div>
+<p><strong>Decision:</strong> treat GLM-5.3-class open weights as attacker-available today. Patch browsers, drivers and network-device software now; shorten cycles; harden defaults.</p>
+</section>
+
+<section class="card" id="beginner">
+<h2>🌱 Beginner guide — from scratch to professional</h2>
+<p><em>Let's work this out in a step-by-step way to be sure we have the right answer.</em></p>
+<ol>
+<li><strong>Vulnerability</strong> = a bug that lets software do something unintended. <strong>Exploit</strong> = the finished, reliable demonstration using that bug. This study measures the second skill.</li>
+<li><strong>What happened:</strong> a gated model showed full-exploit skill first (shared only with defenders). Then GLM-5.3 shipped the same skill with downloadable weights.</li>
+<li><strong>How it was scored:</strong> known Chrome V8 bugs (50/410 vs 56/410), real open-source projects (4% vs 6% full takeovers vs 0% before), plus a US-government check calling it "the most cyber-capable open-weight model to date."</li>
+<li><strong>Why 4% matters:</strong> 0 means nobody ever finished the chain. 4 means somebody now can, repeatedly. Plan as if the chain is finishable.</li>
+<li><strong>Why download matters:</strong> hosted models block editing by design; downloadable models cannot — edited copies appeared within days.</li>
+<li><strong>What to do:</strong> update fast, require multi-factor login, keep logs, give AI tools minimal permissions.</li>
+</ol>
+</section>
+
+<section class="card" id="figures">
+<h2>Figures — what the published numbers look like</h2>
+<div class="grid">
+<div><img class="fig" src="figures/01_exploitbench.png" alt="ExploitBench published rates with confidence intervals"><p><small>Fig 1 — end-to-end rates + 95% CIs. Overlapping bars = statistically tied; predecessors at zero = threshold crossed.</small></p></div>
+<div><img class="fig" src="figures/03_refusal_ladder.png" alt="Published safeguard ladder"><p><small>Fig 2 — published willingness ladder from simulation (nothing executed). Gated models stayed at zero where testable.</small></p></div>
+<div><img class="fig" src="figures/04_economics.png" alt="Attacker economics log scale"><p><small>Fig 3 — published costs on a log scale. The marginal attacker needs a credit card, not a nation-state budget.</small></p></div>
+</div>
+</section>
+
+<section class="card" id="verify">
+<h2>Verification table — every claim has a source</h2>
+<table>
+<tr><th>Claim</th><th>Number</th><th>Source</th></tr>
+<tr><td>ExploitBench end-to-end (same setup)</td><td>50/410 (12.2%) vs 56/410 (13.7%), predecessors 0</td><td>Frontier Red Team report 2026-09-29</td></tr>
+<tr><td>Binary exploitation full takeover</td><td>4% vs 6% vs 0% (100 tasks)</td><td>Same report, internal set</td></tr>
+<tr><td>Government assessment</td><td>Most capable open-weight to date; ~4 mo behind US frontier; SEC-Bench 40.4% vs 90.2%; ExploitGym 9.4% vs 44.4%; OSS-Fuzz 7.7% vs 23.2%</td><td>NIST CAISI 2026-09-17</td></tr>
+<tr><td>N-day tracker</td><td>CVE-2026-11645: V8 out-of-bounds, Chrome &lt;149.0.7827.103, High — verified live via NVD 2026-10-06 (metadata only)</td><td>NVD + report ($20.40 chain)</td></tr>
+<tr><td>Safeguard ladder (simulation)</td><td>0% → 64% → 92% → 100%; gated 0%</td><td>Same report; mechanism consistent with refusal-direction literature</td></tr>
+<tr><td>Patch gap</td><td>0.8–6% fixed; 28.3% of CVEs &lt;24h; CVE +263%</td><td>Ledger audits + CSA note</td></tr>
+</table>
+<p><small>Full ledger with URLs + access dates: <code>data/claims.csv</code>. Comparison caveat: US models were tested safeguards-disabled where applicable and include vetted-only releases — the gap ≠ attacker-accessible gap.</small></p>
+</section>
+
+<section class="card" id="stories">
+<h2>User stories — what you can use this repo for</h2>
+<table>
+<tr><th>You are…</th><th>Do this</th><th>You get</th></tr>
+<tr><td>Student</td><td>Read the beginner guide, take the quiz</td><td>Interview-ready mental model</td></tr>
+<tr><td>Defender / SOC</td><td>Run the 4 scripts, follow §6 checklist</td><td>Emergency patch justification</td></tr>
+<tr><td>CISO</td><td>Present the 3 CEO bullets</td><td>One-slide board narrative</td></tr>
+<tr><td>Maintainer</td><td>Apply triage calibration (−40pp)</td><td>Disclosure-survival playbook</td></tr>
+<tr><td>Researcher</td><td>Extend §5 hidden patterns</td><td>8 sourced PhD directions</td></tr>
+</table>
+</section>
+
+<section class="card" id="quiz">
+<h2>Interactive quiz — from scratch to pro (10 questions)</h2>
+<p>Answer all 10, then press <strong>Grade my quiz</strong>. Explanations appear instantly. Target: 8/10 = professional.</p>
+<div id="quizbox"></div>
+<button class="btn" onclick="grade()">Grade my quiz</button>
+<button class="btn ghost" onclick="resetQuiz()">Reset</button>
+<p id="score" style="font-weight:bold"></p>
+</section>
+
+<section class="card" id="deploy">
+<h2>GitHub Pages — turn this repo into a website</h2>
+<ol>
+<li>Push to GitHub (public repo for Free accounts).</li>
+<li>Keep <code>preview.html</code> at root (done). <code>index.html</code> redirects to it.</li>
+<li><strong>Settings → Pages → Source: Deploy from a branch → Branch: <code>main</code> → Folder: <code>/ (root)</code> → Save.</strong></li>
+<li>Open <code>https://&lt;you&gt;.github.io/&lt;repo&gt;/preview.html</code> in ~1 minute. HTTPS is automatic.</li>
+<li>Video demo: <code>asciinema rec demo.cast -- python experiments/01_claims_triangulation.py</code> then <code>agg demo.cast demo.gif</code> and embed with <code>![Demo](demo.gif)</code>.</li>
+</ol>
+</section>
+
+<section class="card" id="refs">
+<h2>References (accessed Oct 2026)</h2>
+<ul>
+<li>Frontier Red Team report 2026-09-29 (primary scorecards).</li>
+<li>NIST CAISI assessment 2026-09-17 (independent capability table).</li>
+<li>Z.ai release notes 2026-08-14 (self-reported benchmarks).</li>
+<li>Public ExploitBench harness docs + site (41 bugs, 16 flags, MCP).</li>
+<li>Refusal-direction literature 2024–2026 (mechanistic plausibility).</li>
+<li>Project Glasswing updates + CSA patching-deficit note + ledger audits (impact + counter-evidence).</li>
+<li>NVD record CVE-2026-11645 fetched 2026-10-06 (V8 OOB, High).</li>
+</ul>
+<p><small>Defensive-only. No exploits, bypasses, targets, or weight edits are distributed. MIT licensed.</small></p>
+</section>
+
+<footer>Built from <code>data/claims.csv</code> + <code>experiments/*.py</code>. Regenerate figures locally; NVD/harness metadata cached in <code>data/harness_metadata.json</code>.</footer>
+</div>
+<script>
+const Q=[
+{q:"A vulnerability vs an exploit is…",o:["The same thing","Bug vs finished reliable attack using that bug","Attack vs bug (reversed)","Two kinds of firewall"],a:1,e:"Finding a bug is hard; turning it into a reliable end-to-end exploit is the harder skill this study measures."},
+{q:"50/410 vs 56/410 on the same V8 setup means…",o:["The downloadable model is far behind","They are statistically tied; predecessors scored ~0","410 models were tested","50% vs 56%"],a:1,e:"12.2% [9.4–15.7] vs 13.7% [10.7–17.3] overlap. The story is the tie + the jump from zero."},
+{q:"Why does 4% (vs 0% before) matter?",o:["It is noise","Zero-to-nonzero = the chain is now finishable","It means 4 bugs total","It proves every attack succeeds"],a:1,e:"Existence beats magnitude: plan as if full takeovers are finishable, because scorecards show they are."},
+{q:"What did the government assessment conclude?",o:["Most cyber-capable open-weight model to date, ~4 months behind the US frontier","It is ahead of all US models","It tested only closed models","It found no capability"],a:0,e:"Same direction as the lab report, different harness — triangulation, not duplication."},
+{q:"The 0 → 64 → 92 → 100 ladder measures…",o:["Real-world hack success","Willingness to engage in a simulated room where nothing executes","Patch speed","Model download speed"],a:1,e:"Fake shell + model-approximated results. A willingness signal, never replicate it."},
+{q:"Why does downloadable matter more than training?",o:["Downloads are faster","Hosted models block prefill/weight-editing by design; downloads cannot","Training does not matter","Open models are always safer"],a:1,e:"Edited copies appeared within days. Assume downloaded weights ≈ no effective refusal."},
+{q:"The patch gap in one line:",o:["Everything is patched","0.8–6% confirmed fixed while weaponization happens in hours","No bugs were found","CVEs decreased 263%"],a:1,e:"Machine-speed discovery × human-speed patching = growing unpatched inventory."},
+{q:"Severity inflation 91.5% vs 51.3% means…",o:["Maintainers overrate severity","Model self-scores run ~40pp hotter than maintainers — recalibrate triage","Severity does not matter","All bugs are critical"],a:1,e:"Do not trust model self-scored severity for prioritization."},
+{q:"$20.40 for one N-day chain proves…",o:["Attacks are expensive","The marginal attacker needs a credit card, not a nation-state budget","Humans are unnecessary","Patching is unnecessary"],a:1,e:"20 min human + 8 h model in the published test. Price defense accordingly."},
+{q:"Monday-morning priority?",o:["Wait for perfect patches","Patch browsers/drivers/network software now; MFA, logging, least privilege","Disable all AI tools forever","Ignore advisories"],a:1,e:"Emergency patches + controls that survive missed patches. Quarterly cycles are obsolete."}
+];
+const box=document.getElementById('quizbox');
+function render(){
+box.innerHTML='';
+Q.forEach((item,i)=>{
+const d=document.createElement('div');d.className='quiz-q';
+d.innerHTML='<h4>'+(i+1)+'. '+item.q+'</h4>'+item.o.map((t,j)=>'<label><input type="radio" name="q'+i+'" value="'+j+'"> '+t+'</label>').join('')+'<div class="explain" id="ex'+i+'"><b>Why:</b> '+item.e+'</div>';
+box.appendChild(d);
+});
+}
+function grade(){
+let s=0;
+Q.forEach((item,i)=>{
+const sel=document.querySelector('input[name="q'+i+'"]:checked');
+const ex=document.getElementById('ex'+i);ex.style.display='block';
+const ok=sel&&parseInt(sel.value)===item.a;
+if(ok)s++;
+ex.style.borderColor=ok?'var(--ok)':'#c0392b';
+});
+const msg='You scored '+s+' / '+Q.length+(s>=8?' — professional level. 🎉':s>=5?' — close, re-read the beginner guide.':' — restart from the beginner guide.');
+document.getElementById('score').textContent=msg;
+window.scrollTo({top:document.getElementById('score').offsetTop-120,behavior:'smooth'});
+}
+function resetQuiz(){render();document.getElementById('score').textContent='';}
+function toggleTheme(){const h=document.documentElement;h.dataset.theme=h.dataset.theme==='dark'?'':'dark';}
+render();
+</script>
+</body>
+</html>

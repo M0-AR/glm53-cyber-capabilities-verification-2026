@@ -1,0 +1,35 @@
+metric,numerator,denominator,percent,source,url,accessed
+Anthropic ExploitBench GLM-5.3 end-to-end,50,410,12.20,Anthropic 2026-09-29,https://www.anthropic.com/research/glm-5-3-and-the-spread-of-advanced-cyber-capabilities,2026-10-06
+Anthropic ExploitBench Mythos Preview end-to-end,56,410,13.66,Anthropic 2026-09-29,https://www.anthropic.com/research/glm-5-3-and-the-spread-of-advanced-cyber-capabilities,2026-10-06
+Anthropic binary-exp GLM-5.3 full hijack,4,100,4.0,Anthropic 2026-09-29,https://www.anthropic.com/research/glm-5-3-and-the-spread-of-advanced-cyber-capabilities,2026-10-06
+Anthropic binary-exp Mythos Preview full hijack,6,100,6.0,Anthropic 2026-09-29,https://www.anthropic.com/research/glm-5-3-and-the-spread-of-advanced-cyber-capabilities,2026-10-06
+Anthropic binary-exp Opus 4.6 / GLM-5.2,0,100,0.0,Anthropic 2026-09-29,https://www.anthropic.com/research/glm-5-3-and-the-spread-of-advanced-cyber-capabilities,2026-10-06
+CAISI SEC-Bench Pro GLM-5.3,74,183,40.4,NIST CAISI 2026-09-17,https://www.nist.gov/news-events/news/2026/09/caisis-assessment-zais-glm-53-cyber-capabilities,2026-10-06
+CAISI SEC-Bench Pro US frontier,165,183,90.2,NIST CAISI 2026-09-17,https://www.nist.gov/news-events/news/2026/09/caisis-assessment-zais-glm-53-cyber-capabilities,2026-10-06
+CAISI ExploitBench GLM-5.3,,,61.1,NIST CAISI 2026-09-17,https://www.nist.gov/news-events/news/2026/09/caisis-assessment-zais-glm-53-cyber-capabilities,2026-10-06
+CAISI ExploitBench US frontier,,,100.0,NIST CAISI 2026-09-17,https://www.nist.gov/news-events/news/2026/09/caisis-assessment-zais-glm-53-cyber-capabilities,2026-10-06
+CAISI ExploitGym userspace GLM-5.3,47,498,9.4,NIST CAISI 2026-09-17,https://www.nist.gov/news-events/news/2026/09/caisis-assessment-zais-glm-53-cyber-capabilities,2026-10-06
+CAISI ExploitGym US frontier,223,502,44.4,NIST CAISI 2026-09-17,https://www.nist.gov/news-events/news/2026/09/caisis-assessment-zais-glm-53-cyber-capabilities,2026-10-06
+CAISI OSS-Fuzz GLM-5.3,23,297,7.7,NIST CAISI 2026-09-17,https://www.nist.gov/news-events/news/2026/09/caisis-assessment-zais-glm-53-cyber-capabilities,2026-10-06
+CAISI OSS-Fuzz US frontier,69,297,23.2,NIST CAISI 2026-09-17,https://www.nist.gov/news-events/news/2026/09/caisis-assessment-zais-glm-53-cyber-capabilities,2026-10-06
+CAISI lag behind US frontier (months),,,,4,NIST CAISI 2026-09-17,https://www.nist.gov/news-events/news/2026/09/caisis-assessment-zais-glm-53-cyber-capabilities,2026-10-06
+GLM-5.3 release / weights public,,,,2026-08-14 + ~2 weeks,Z.ai blog,https://z.ai/blog/glm-5.3,2026-10-06
+Z.ai CyberGym 84.5 vs GLM-5.2 77.2,,,,Z.ai blog,https://z.ai/blog/glm-5.3,2026-10-06
+Z.ai ExploitBench 54.4 vs GLM-5.2 24.4,,,,Z.ai blog,https://z.ai/blog/glm-5.3,2026-10-06
+Z.ai ExploitGym 105/130 (2h/6h) vs 29/39,,,,Z.ai blog,https://z.ai/blog/glm-5.3,2026-10-06
+Safeguard bare order engagement,,,0.0,Anthropic 2026-09-29,https://www.anthropic.com/research/glm-5-3-and-the-spread-of-advanced-cyber-capabilities,2026-10-06
+Safeguard + cover story,,,64.0,Anthropic 2026-09-29,https://www.anthropic.com/research/glm-5-3-and-the-spread-of-advanced-cyber-capabilities,2026-10-06
+Safeguard + prefilled reasoning,,,92.0,Anthropic 2026-09-29,https://www.anthropic.com/research/glm-5-3-and-the-spread-of-advanced-cyber-capabilities,2026-10-06
+Safeguard abliterated,,,100.0,Anthropic 2026-09-29,https://www.anthropic.com/research/glm-5-3-and-the-spread-of-advanced-cyber-capabilities,2026-10-06
+Claude safeguarded all applicable,,,0.0,Anthropic 2026-09-29,https://www.anthropic.com/research/glm-5-3-and-the-spread-of-advanced-cyber-capabilities,2026-10-06
+Abliteration cost 2200 GPUh ~$4400; Flash 600 GPUh; experienced ~600 GPUh ~$1200,,,,Anthropic 2026-09-29,https://www.anthropic.com/research/glm-5-3-and-the-spread-of-advanced-cyber-capabilities,2026-10-06
+Refusal post-abliteration JBB/HarmBench/StrongREJECT,,,3/2/12,Anthropic 2026-09-29,https://www.anthropic.com/research/glm-5-3-and-the-spread-of-advanced-cyber-capabilities,2026-10-06
+N-day CVE-2026-11645 chain 20min human + 8h model $20.40,,,,Anthropic 2026-09-29,https://www.anthropic.com/research/glm-5-3-and-the-spread-of-advanced-cyber-capabilities,2026-10-06
+Glasswing 10000 vulns $100M + $4M,,,,Anthropic Glasswing 2026-04/05,https://www.anthropic.com/project/glasswing,2026-10-06
+Glasswing OSS scan 6202 hi/crit; 1752 triaged; 90.6% TP; 62.4% hi/crit; 530 disclosed + 827 pending; 75 patched,,,,Anthropic Glasswing update,https://www.anthropic.com/research/glasswing-initial-update,2026-10-06
+Ledger audit 26153 findings; 10.5% ledgered; 8% reported; 0.8% fixed; 245 withdrawn; severity 91.5 vs 51.3,,,,Vulncheck/Garrity via TechTarget 2026-09-29,https://www.techtarget.com/it-infrastructure/news/366651381/Glasswing-results-put-AI-vulnpocalypse-to-the-test,2026-10-06
+AI-attributed exploited in wild 14/1061 ~1%,,,,Vulncheck via TechTarget,https://www.techtarget.com/it-infrastructure/news/366651381/Glasswing-results-put-AI-vulnpocalypse-to-the-test,2026-10-06
+Disclosure-to-exploit single-digit hours (was 771d 2018); 28.3% <24h; CVE +263% 2020-2025,,,,CSA 2026-06-08,https://labs.cloudsecurityalliance.org/wp-content/uploads/2026/06/CSA_research_note_glasswing_ai_vuln_patching_deficit_20260608-csa-styled.pdf,2026-10-06
+Refusal single direction 13 models; ORTHO HARMBENCH 78-84% Qwen; <$5 70B; minimal MMLU loss,,,,Arditi et al NeurIPS 2024 arXiv:2406.11717,https://arxiv.org/abs/2406.11717,2026-10-06
+Abliteration off-target optimism +12.2pp Gemma +7.4pp Qwen,,,,Fafula 2026-07-19 arXiv:2607.17427,https://arxiv.org/abs/2607.17427,2026-10-06
+ExploitBench 41 V8 bugs 16 flags 5 tiers 300-turn,,,,exploitbench docs live fetch,https://github.com/exploitbench/exploitbench,2026-10-06

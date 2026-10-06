@@ -1,0 +1,7 @@
+numpy>=1.26
+pandas>=2.0
+matplotlib>=3.8
+scipy>=1.12
+requests>=2.31
+jupyterlab>=4.0
+statsmodels>=0.14
